@@ -124,8 +124,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .b-kids{background:rgba(40,180,100,0.12);color:#50c87a;font-family:var(--font-display);font-size:32px;font-weight:700;letter-spacing:0.1em;padding:0.2rem 0.5rem;border-radius:1px}
 .b-yoga{background:rgba(155,123,181,0.15);color:#b088d0;font-family:var(--font-display);font-size:32px;font-weight:700;letter-spacing:0.1em;padding:0.2rem 0.5rem;border-radius:1px}
 .coaches{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:4rem}
-.coach{background:var(--card);border:1px solid var(--border-dim);border-radius:2px;overflow:hidden;transition:border-color 0.2s}
+.coach{background:var(--card);border:1px solid var(--border-dim);border-radius:2px;overflow:hidden;transition:border-color 0.2s;position:relative}
 .coach:hover{border-color:var(--border)}
+.coach-link{position:static}
+.coach-link::after{content:'';position:absolute;inset:0;z-index:1;cursor:pointer}
 .coach-photo{width:100%;aspect-ratio:4/3;background:var(--mid);display:flex;align-items:center;justify-content:center;position:relative}
 .coach-initials{font-family:var(--font-display);font-size:90px;font-weight:900;color:var(--orange-deep);letter-spacing:0.04em}
 .belt-bar{position:absolute;bottom:0;left:0;right:0;height:5px}
