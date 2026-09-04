@@ -1,0 +1,204 @@
+/* ── Coach subpage styles ── */
+
+.coach-hero {
+  padding: 8rem 3rem 5rem;
+  background: rgba(28,39,64,0.97);
+  border-bottom: 1px solid rgba(232,163,61,0.2);
+}
+.coach-hero--yoga {
+  background: linear-gradient(135deg, rgba(28,39,64,0.97) 60%, rgba(155,123,181,0.15));
+}
+.coach-hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.coach-hero-photo {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: var(--mid);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(232,163,61,0.2);
+}
+.coach-hero-photo--img {
+  background: none;
+}
+.coach-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.coach-back {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+  transition: color 0.2s;
+}
+.coach-back:hover { color: #F0B84D; }
+.coach-hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(52px, 7vw, 90px);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #F5EFE3;
+  line-height: 0.9;
+  margin: 0.5rem 0 0.75rem;
+}
+.coach-hero-role {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 1.75rem;
+}
+.coach-belt-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.belt-pill {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  border-radius: 2px;
+}
+.pill-black { background: #111; color: #F5EFE3; border: 1px solid #444; }
+.pill-yoga  { background: rgba(155,123,181,0.25); color: #c4a0e8; border: 1px solid rgba(155,123,181,0.4); }
+.pill-neutral { background: rgba(232,163,61,0.1); color: var(--orange); border: 1px solid rgba(232,163,61,0.25); }
+
+.coach-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 5rem;
+  align-items: start;
+}
+.coach-para {
+  font-size: 26px;
+  color: var(--muted);
+  line-height: 1.55;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+.coach-classes {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.coach-class-item {
+  background: var(--card);
+  border: 1px solid var(--border-dim);
+  border-radius: 2px;
+  padding: 1.5rem 2rem;
+}
+.coach-class-name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.coach-class-desc {
+  font-size: 22px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.coach-sidebar {
+  position: sticky;
+  top: 7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.coach-photo-sidebar {
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid var(--border-dim);
+  margin-bottom: 0.5rem;
+}
+.coach-sidebar-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.coach-stat-card {
+  background: var(--card);
+  border: 1px solid var(--border-dim);
+  border-radius: 2px;
+  padding: 1rem 1.25rem;
+}
+.coach-stat-label {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 0.25rem;
+}
+.coach-stat-value {
+  font-size: 20px;
+  color: var(--white);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+/* ── Coach card links on index page ── */
+.coach-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange-dark);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.coach-link:hover { color: var(--orange); }
+
+/* ── Responsive ── */
+@media(max-width:800px) {
+  .coach-hero { padding: 6rem 1.25rem 3.5rem; }
+  .coach-hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .coach-hero-photo { aspect-ratio: 4/3; max-width: 380px; }
+  .coach-content-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .coach-sidebar { position: static; }
+  .coach-para { font-size: 20px; }
+}
+@media(max-width:540px) {
+  .coach-hero { padding: 5rem 1rem 3rem; }
+  .coach-hero-name { font-size: clamp(42px, 12vw, 60px); }
+  .coach-hero-role { font-size: 18px; }
+  .coach-class-desc { font-size: 18px; }
+}
