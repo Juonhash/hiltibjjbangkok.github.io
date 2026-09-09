@@ -48,7 +48,7 @@
   "logo": "https://www.hiltibjjbangkok.com/logo.png",
   "image": "https://www.hiltibjjbangkok.com/og-image.jpg",
   "telephone": "+66632199134",
-  "email": "bangkok@hiltibjj.com",
+  "email": "hiltibjjbangkok@gmail.com",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Discovery Beat",
@@ -904,7 +904,7 @@ l-20 -53 20 -33 20 -33 -26 -31 c-25 -30 -26 -34 -14 -77 7 -25 21 -50 30 -57
       <div class="contact-items">
         <div class="ci"><label>Location</label><p>Discovery Beat<br>Bangkok, Thailand</p></div>
         <div class="ci"><label>Phone / LINE</label><p><a href="tel:+66632199134">+66 63 219 9134</a></p></div>
-        <div class="ci"><label>Email</label><p><a href="mailto:bangkok@hiltibjj.com">bangkok@hiltibjj.com</a></p></div>
+        <div class="ci"><label>Email</label><p><a href="mailto:hiltibjjbangkok@gmail.com">hiltibjjbangkok@gmail.com</a></p></div>
         <div class="ci"><label>Open Mat — Visitors</label><p>Saturday 10:30–12:30<br>No booking needed for Hilti members</p></div>
       </div>
       <div style="display:flex;gap:1.5rem;margin-top:2rem;flex-wrap:wrap">
@@ -915,12 +915,16 @@ l-20 -53 20 -33 20 -33 -26 -31 c-25 -30 -26 -34 -14 -77 7 -25 21 -50 30 -57
     </div>
     <div class="form-box">
       <h3>Book Your<br>First Class</h3>
-      <div class="ff"><label>Full Name</label><input type="text" placeholder="Your name"></div>
-      <div class="ff"><label>Email or LINE ID</label><input type="text" placeholder="How to reach you"></div>
-      <div class="ff"><label>Experience Level</label><select><option value="">Select your level</option><option>Complete Beginner</option><option>Some BJJ background</option><option>Other martial arts</option><option>Competition experience</option></select></div>
-      <div class="ff"><label>Class Interest</label><select><option value="">What interests you?</option><option>Brazilian Jiu-Jitsu</option><option>Yoga</option><option>YogaforBJJ</option><option>Kids Class (ages 5–10)</option><option>Kids Class (ages 10–14)</option><option>Not sure yet</option></select></div>
-      <div class="ff"><label>Message (Optional)</label><textarea rows="3" placeholder="Questions or preferred times?"></textarea></div>
-      <button class="btn-main" style="width:100%" onclick="this.textContent='Sent! See you on the mats.';this.style.background='#1C2740';this.style.color='#E8A33D'">Send Request →</button>
+      <form id="contact-form" action="send_form_email.php" method="POST">
+        <input type="hidden" name="website" value="" style="display:none">
+        <div class="ff"><label>Full Name</label><input type="text" name="name" placeholder="Your name" required></div>
+        <div class="ff"><label>Email or LINE ID</label><input type="text" name="contact" placeholder="How to reach you" required></div>
+        <div class="ff"><label>Experience Level</label><select name="experience"><option value="">Select your level</option><option>Complete Beginner</option><option>Some BJJ background</option><option>Other martial arts</option><option>Competition experience</option></select></div>
+        <div class="ff"><label>Class Interest</label><select name="interest"><option value="">What interests you?</option><option>Brazilian Jiu-Jitsu</option><option>Yoga</option><option>YogaforBJJ</option><option>Kids Class (ages 5–10)</option><option>Kids Class (ages 10–14)</option><option>Not sure yet</option></select></div>
+        <div class="ff"><label>Message (Optional)</label><textarea name="message" rows="3" placeholder="Questions or preferred times?"></textarea></div>
+        <button type="submit" class="btn-main" style="width:100%" id="form-btn">Send Request →</button>
+      </form>
+      <p id="form-msg" style="display:none;margin-top:1rem;font-family:var(--font-display);font-size:15px;font-weight:700;color:#E8A33D"></p>
     </div>
   </div>
 </section>
@@ -972,5 +976,42 @@ l-20 -53 20 -33 20 -33 -26 -31 c-25 -30 -26 -34 -14 -77 7 -25 21 -50 30 -57
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+  var form = document.getElementById('contact-form');
+  var btn = document.getElementById('form-btn');
+  var msg = document.getElementById('form-msg');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form)
+      }).then(function(r) { return r.json(); }).then(function(data) {
+        if (data.status === 'success') {
+          form.reset();
+          btn.textContent = 'Sent!';
+          btn.style.background = '#1C2740';
+          btn.style.color = '#E8A33D';
+          msg.textContent = 'Thanks! We\'ll be in touch soon. See you on the mats.';
+          msg.style.display = 'block';
+        } else {
+          btn.textContent = 'Send Request →';
+          btn.disabled = false;
+          msg.textContent = data.message || 'Something went wrong. Please email hiltibjjbangkok@gmail.com';
+          msg.style.color = '#c0392b';
+          msg.style.display = 'block';
+        }
+      }).catch(function() {
+        btn.textContent = 'Send Request →';
+        btn.disabled = false;
+        msg.textContent = 'Something went wrong. Please email us at hiltibjjbangkok@gmail.com';
+        msg.style.color = '#c0392b';
+        msg.style.display = 'block';
+      });
+    });
+  }
+</script>
 </body>
 </html>
