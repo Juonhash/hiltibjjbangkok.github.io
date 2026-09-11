@@ -1,4 +1,5 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-padding-top:100px}
 :root{
   --orange:#E8A33D;--orange-dark:#B07A1E;--orange-deep:#7A5210;
   --orange-glow:rgba(232,163,61,0.15);--black:#F5EFE3;--dark:#F4EDDC;
@@ -40,10 +41,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .stat:last-child{border-right:none}
 .stat-n{font-family:var(--font-display);font-size:80px;font-weight:900;color:var(--orange);line-height:1;display:block}
 .stat-l{font-size:15px;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase;font-weight:600;margin-top:0.25rem;font-family:var(--font-display)}
-.sec{padding:5rem 3rem;max-width:1200px;margin:0 auto}
-.sec-full{padding:5rem 0}
+.sec{padding:3rem 3rem;max-width:1200px;margin:0 auto}
+.sec-full{padding:3rem 0}
 .sec-inner{max-width:1200px;margin:0 auto;padding:0 3rem}
-.eyebrow{font-family:var(--font-display);font-size:30px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--orange);background:#1C2740;display:inline-flex;align-items:center;gap:0.75rem;padding:0.25rem 1rem 0.25rem 0.75rem;border-radius:2px;margin-bottom:1.25rem}
+.eyebrow{font-family:var(--font-display);font-size:30px;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--orange);background:#1C2740;display:inline-flex;align-items:center;gap:0.75rem;padding:0.25rem 1rem 0.25rem 0.75rem;border-radius:2px;margin-bottom:1.25rem;margin-top:2rem}
 .eyebrow::before{content:'';width:20px;height:2px;background:var(--orange);flex-shrink:0}
 .sec-title{font-family:var(--font-display);font-size:clamp(60px,8.8vw,100px);font-weight:900;letter-spacing:0.03em;text-transform:uppercase;line-height:0.95;color:var(--white);margin-bottom:1.25rem}
 .sec-title .o{color:var(--orange)}
@@ -177,7 +178,7 @@ footer{background:var(--dark);border-top:1px solid var(--border-dim);padding:4re
 .footer-inner{max-width:1200px;margin:0 auto}
 .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
 .footer-brand p{font-size:22px;color:var(--muted);line-height:1.45;margin-top:1.25rem;max-width:280px}
-.fcol h4{font-family:var(--font-display);font-size:21px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);margin-bottom:1.25rem}
+.fcol h4{font-family:var(--font-display);font-size:21px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--orange);margin-bottom:1.25rem;background:#1C2740;display:inline-block;padding:0.2rem 0.75rem;border-radius:2px}
 .fcol ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem}
 .fcol a{font-size:22px;color:var(--muted);text-decoration:none;transition:color 0.2s}
 .fcol a:hover{color:var(--white)}
